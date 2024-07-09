@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0.1 (Python 3.12.4 on win32)" generated="2024-07-09T10:48:40.844613" rpa="false" schemaversion="5">
+<suite id="s1" name="Robot Create Va" source="D:\robot_create_va">
+<suite id="s1-s1" name="Create Va" source="D:\robot_create_va\create_va.robot">
+<test id="s1-s1-t1" name="Valid Login" line="10">
+<kw name="Open Browser To Login Page">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-07-09T10:48:41.116645" level="INFO">Opening browser 'Chrome' to base url 'https://web.santikadev.com/hotel?hotelId=66&amp;checkInDate=2024-07-10&amp;duration=2&amp;rooms=1&amp;specialRateCode'.</msg>
+<arg>${LOGIN URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-07-09T10:48:41.116645" elapsed="30.862291"/>
+</kw>
+<kw name="Title Should Be" owner="SeleniumLibrary">
+<msg time="2024-07-09T10:49:12.154649" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2024-07-09T10:49:12.157685" level="FAIL">Title should have been 'Login Page' but was 'Hotel Santika Bandung | Bandung Hotel - Santika Indonesia Hotels and Resorts'.</msg>
+<arg>Login Page</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<status status="FAIL" start="2024-07-09T10:49:11.978936" elapsed="0.181443">Title should have been 'Login Page' but was 'Hotel Santika Bandung | Bandung Hotel - Santika Indonesia Hotels and Resorts'.</status>
+</kw>
+<status status="FAIL" start="2024-07-09T10:48:41.114784" elapsed="31.045595">Title should have been 'Login Page' but was 'Hotel Santika Bandung | Bandung Hotel - Santika Indonesia Hotels and Resorts'.</status>
+</kw>
+<kw name="Input Username">
+<arg>demo</arg>
+<status status="NOT RUN" start="2024-07-09T10:49:12.169238" elapsed="0.000511"/>
+</kw>
+<kw name="Input Password">
+<arg>mode</arg>
+<status status="NOT RUN" start="2024-07-09T10:49:12.171066" elapsed="0.000000"/>
+</kw>
+<kw name="Submit Credentials">
+<status status="NOT RUN" start="2024-07-09T10:49:12.171066" elapsed="0.000000"/>
+</kw>
+<kw name="Welcome Page Should Be Open">
+<status status="NOT RUN" start="2024-07-09T10:49:12.174587" elapsed="0.000000"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-07-09T10:49:12.174587" elapsed="2.190226"/>
+</kw>
+<status status="FAIL" start="2024-07-09T10:48:41.112273" elapsed="33.252540">Title should have been 'Login Page' but was 'Hotel Santika Bandung | Bandung Hotel - Santika Indonesia Hotels and Resorts'.</status>
+</test>
+<doc>Simple example using SeleniumLibrary.</doc>
+<status status="FAIL" start="2024-07-09T10:48:40.906404" elapsed="33.462572"/>
+</suite>
+<status status="FAIL" start="2024-07-09T10:48:40.870036" elapsed="33.501039"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Robot Create Va">Robot Create Va</stat>
+<stat pass="0" fail="1" skip="0" id="s1-s1" name="Create Va">Robot Create Va.Create Va</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
