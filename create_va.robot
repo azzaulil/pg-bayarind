@@ -1,19 +1,20 @@
 *** Settings ***
-Documentation     Simple example using SeleniumLibrary.
+Documentation     Edit checkinDate first
 Library           SeleniumLibrary
 
 *** Variables ***
-${URL}      https://web.santikadev.com/hotel?hotelId=66&checkInDate=2024-07-30&duration=1&rooms=1&specialRateCode
+${URL}      https://web.santikadev.com/hotel?hotelId=43&checkInDate=2024-07-15&duration=1&rooms=1&specialRateCode
 ${BROWSER}        Chrome
+${area_code}    821
 
 *** Test Cases ***
-Valid Login
+Generate VA number
     Open Browser To Merchant Page
     Select Room
     Fill in Data
     Review
     Continue to Payment
-    Select payment BCA VA
+    Select payment BCA
     Check
     Pay
     View Payment Instruction
@@ -24,7 +25,7 @@ Valid Login
 Open Browser To Merchant Page
     Open Browser    ${URL}    ${BROWSER}
     Maximize Browser Window
-    Title Should Be    Hotel Santika Bandung | Bandung Hotel - Santika Indonesia Hotels and Resorts
+    Page Should Contain    text=Select Room    loglevel=TRACE
 
 Select Room
     Click Element    xpath=//div[@id='hotel-general']/div[2]/div[2]/div/div/button/div
@@ -43,13 +44,17 @@ Fill in Data
     Sleep    3s
     Click Element    xpath=//input[@type='email']
     Sleep    3s
-    Input Text    xpath=//input[@type='email']    test1@gmail.com
+    ${RANDOM INT}=    Evaluate    random.randint(1,100)    random
+    Input Text    xpath=//input[@type='email']    test${RANDOM INT}@gmail.com
     Sleep    3s
     Input Text    xpath=//div[@id='app']/div[12]/main/div/div/div/div/div/div[2]/div/div/div[2]/div/div/div/ul/li/div[2]/div/form/div[2]/div/div/div/div/div/input    text=QA
     Sleep    3s
     Input Text    xpath=//div[@id='app']/div[12]/main/div/div/div/div/div/div[2]/div/div/div[2]/div/div/div/ul/li/div[2]/div/form/div[2]/div[2]/div/div/div/div/input    text=Testing
     Sleep    3s
-    Input Text    name:telephone    8123456789
+    ${random_part1}    Evaluate    random.randint(100, 999)
+    ${random_part2}    Evaluate    random.randint(1000, 9999)
+    ${phone_number}    Set Variable    ${area_code}${random_part1}${random_part2}
+    Input Text    name:telephone    ${phone_number}
     Sleep    3s
 
 Review
@@ -60,8 +65,8 @@ Continue to Payment
     Click Element    xpath=//div[@id='app']/div[12]/main/div/div/div/div/div/div[2]/div/div/div[2]/div[2]/div/div/div[3]/button/div
     Sleep    3s
 
-Select payment BCA VA
-    Click Element    xpath=//div[@id='app']/div[13]/main/div/div/div/div/div/div[2]/div/div/div[2]/div[3]/div/div/div[3]/div/div/div/div[2]/div/div/div
+Select payment BCA
+    Click Element    xpath=//*[contains(text(), "BCA Transfer")]
     Sleep    3s
 
 Check
