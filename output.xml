@@ -1,163 +1,84 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.0.1 (Python 3.12.4 on win32)" generated="2024-07-24T16:29:09.386682" rpa="false" schemaversion="5">
+<robot generator="Robot 7.0.1 (Python 3.12.4 on win32)" generated="2024-07-26T17:28:08.846871" rpa="false" schemaversion="5">
 <suite id="s1" name="Create Signature" source="D:\robot_create_va\create_signature.robot">
-<test id="s1-t1" name="Generate Signature" line="7">
-<kw name="Open Browser To Merchant Page">
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2024-07-24T16:29:09.592370" level="INFO">Opening browser 'Chrome' to base url 'https://snaptest-configurator.bayarind.id/tools/generate-asymmetric'.</msg>
-<arg>${URL}</arg>
-<arg>${BROWSER}</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2024-07-24T16:29:09.592370" elapsed="2.777215"/>
+<test id="s1-t1" name="Payment VA" line="18">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-07-26T17:28:09.210230" level="INFO">${header} = {'X-TIMESTAMP': '2024-07-26T15:20:00+07:00', 'X-SIGNATURE': 'KTJtD+iVKMnCVrdxlvIOCXdurnNv+I/3SEvDZTDtrGkRG3eERZwdIWYoIzWFcTNq+y7dRSJLtZMxaQ9WrT1FtGaBr1cvd8YdKeQKX/80Us08uQTp2krhKDSkBSUm/w4O+8dCzaFBfqJ...</msg>
+<var>${header}</var>
+<arg>X-TIMESTAMP=${timestamp}</arg>
+<arg>X-SIGNATURE=${signature}</arg>
+<arg>X-PARTNER-ID=${partnerId}</arg>
+<arg>X-EXTERNAL-ID=${externalId}</arg>
+<arg>CHANNEL-ID=${channelId}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-07-26T17:28:09.210230" elapsed="0.000000"/>
 </kw>
-<kw name="Maximize Browser Window" owner="SeleniumLibrary">
-<doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2024-07-24T16:29:12.369636" elapsed="0.023515"/>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-07-26T17:28:09.210230" level="INFO">${paidAmount} = {'value': '219000.00', 'currency': 'IDR'}</msg>
+<var>${paidAmount}</var>
+<arg>value=${value}</arg>
+<arg>currency=${currency}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-07-26T17:28:09.210230" elapsed="0.000000"/>
 </kw>
-<kw name="Page Should Contain" owner="SeleniumLibrary">
-<msg time="2024-07-24T16:29:12.404552" level="INFO">Current page contains text 'Log in'.</msg>
-<arg>text=Log in</arg>
-<arg>loglevel=TRACE</arg>
-<doc>Verifies that current page contains ``text``.</doc>
-<status status="PASS" start="2024-07-24T16:29:12.393696" elapsed="0.010856"/>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-07-26T17:28:09.210230" level="INFO">${additionalInfo} = {'insertId': '37597907', 'tagId': '37597907', 'flagType': '11', 'passApp': '69201404a03906b6ce8a9aee4fb92d95e884885cde84cfed5694ebbe26a67d46', 'idApp': 'amFRRlJZNjdnalFaNmNOeGtZVW5zRCtKTnNqTm13VFpodDF...</msg>
+<var>${additionalInfo}</var>
+<arg>insertId=${insertId}</arg>
+<arg>tagId=${insertId}</arg>
+<arg>flagType=${flagType}</arg>
+<arg>passApp=${passApp}</arg>
+<arg>idApp=${idApp}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-07-26T17:28:09.210230" elapsed="0.000000"/>
 </kw>
-<arg>${snap_config}</arg>
-<status status="PASS" start="2024-07-24T16:29:09.592370" elapsed="2.812182"/>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-07-26T17:28:09.210230" level="INFO">${body} = {'partnerServiceId': '   39317', 'customerNo': '14636628217473100', 'virtualAccountNo': '   3931714636628217473100', 'virtualAccountName': 'QA Testing', 'channelCode': '6011', 'paymentRequestId': '202...</msg>
+<var>${body}</var>
+<arg>partnerServiceId=${partnerServiceId}</arg>
+<arg>customerNo=${customerNo}</arg>
+<arg>virtualAccountNo=${partnerServiceId}${customerNo}</arg>
+<arg>virtualAccountName=${virtualAccountName}</arg>
+<arg>channelCode=${channelCode}</arg>
+<arg>paymentRequestId=${paymentRequestId}</arg>
+<arg>paidAmount=${paidAmount}</arg>
+<arg>referenceNo=${referenceNo}</arg>
+<arg>trxId=${trxId}</arg>
+<arg>trxDateTime=${timestamp}</arg>
+<arg>flagAdvise=${flagAdvise}</arg>
+<arg>additionalInfo=${additionalInfo}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-07-26T17:28:09.210230" elapsed="0.000000"/>
 </kw>
-<kw name="Login">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-07-24T16:29:12.404552" level="INFO">Typing text 'snapconfigurator@bayarind.id' into text field 'email'.</msg>
-<arg>email</arg>
-<arg>snapconfigurator@bayarind.id</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-07-24T16:29:12.404552" elapsed="0.150176"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2024-07-24T16:29:13.565784" level="INFO">Slept 1 second.</msg>
-<arg>1s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2024-07-24T16:29:12.554728" elapsed="1.011056"/>
-</kw>
-<kw name="Input Password" owner="SeleniumLibrary">
-<msg time="2024-07-24T16:29:13.565784" level="INFO">Typing password into text field 'password'.</msg>
-<msg time="2024-07-24T16:29:13.597729" level="INFO">Temporally setting log level to: NONE</msg>
-<arg>password</arg>
-<arg>Rahasia123$</arg>
-<doc>Types the given password into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-07-24T16:29:13.565784" elapsed="0.113742"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2024-07-24T16:29:14.679919" level="INFO">Slept 1 second.</msg>
-<arg>1s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2024-07-24T16:29:13.679526" elapsed="1.000393"/>
-</kw>
-<kw name="Submit Form" owner="SeleniumLibrary">
-<msg time="2024-07-24T16:29:14.679919" level="INFO">Submitting form 'None'.</msg>
-<doc>Submits a form identified by ``locator``.</doc>
-<status status="PASS" start="2024-07-24T16:29:14.679919" elapsed="0.045212"/>
-</kw>
-<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
-<arg>text=Generate Asymmetric Signature</arg>
-<doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2024-07-24T16:29:14.725131" elapsed="0.515808"/>
-</kw>
-<status status="PASS" start="2024-07-24T16:29:12.404552" elapsed="2.836387"/>
-</kw>
-<kw name="Fill the form">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-07-24T16:29:15.250984" level="INFO">Typing text '2024-07-24T16:25:00+07:00' into text field 'timestamp'.</msg>
-<arg>timestamp</arg>
-<arg>2024-07-24T16:25:00+07:00</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-07-24T16:29:15.250984" elapsed="0.261320"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-07-24T16:29:15.512304" level="INFO">Typing text 'POST' into text field 'http_method'.</msg>
-<arg>http_method</arg>
-<arg>POST</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-07-24T16:29:15.512304" elapsed="0.157839"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-07-24T16:29:15.670143" level="INFO">Typing text '/api/v1.0/transfer-va/payment' into text field 'endpoint_url'.</msg>
-<arg>endpoint_url</arg>
-<arg>/api/v1.0/transfer-va/payment</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-07-24T16:29:15.670143" elapsed="0.246718"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-07-24T16:29:15.918339" level="INFO">Typing text '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' into text field 'private_key'.</msg>
-<arg>private_key</arg>
-<arg>${private_key}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-07-24T16:29:15.916861" elapsed="7.208729"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-07-24T16:29:23.125590" level="INFO">Clicking element 'body'.</msg>
-<arg>body</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-07-24T16:29:23.125590" elapsed="0.067084"/>
-</kw>
-<kw name="Press Keys" owner="SeleniumLibrary">
-<msg time="2024-07-24T16:29:23.192674" level="INFO">Sending key(s) ('CTRL+v',) to body element.</msg>
-<msg time="2024-07-24T16:29:23.479462" level="INFO">Pressing special key CONTROL down.</msg>
-<msg time="2024-07-24T16:29:23.479462" level="INFO">Sending key v</msg>
-<msg time="2024-07-24T16:29:23.479462" level="INFO">Releasing special key CONTROL.</msg>
-<arg>body</arg>
-<arg>CTRL+v</arg>
-<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
-<status status="PASS" start="2024-07-24T16:29:23.192674" elapsed="0.309005"/>
-</kw>
-<kw name="Submit Form" owner="SeleniumLibrary">
-<msg time="2024-07-24T16:29:23.501679" level="INFO">Submitting form 'xpath=//*[@id="app"]/div/div[1]/main/div/div/div/div/div/form'.</msg>
-<arg>xpath=//*[@id="app"]/div/div[1]/main/div/div/div/div/div/form</arg>
-<doc>Submits a form identified by ``locator``.</doc>
-<status status="PASS" start="2024-07-24T16:29:23.501679" elapsed="0.048619"/>
-</kw>
-<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
-<arg>xpath=//*[@id="app"]/div/div[1]/main/div/div/div/div/div/div[2]/p</arg>
-<arg>timeout=10s</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2024-07-24T16:29:23.550298" elapsed="0.235346"/>
-</kw>
-<status status="PASS" start="2024-07-24T16:29:15.250984" elapsed="8.535193"/>
-</kw>
-<kw name="Copy signature">
-<kw name="Scroll Element Into View" owner="SeleniumLibrary">
-<arg>xpath=//*[@id="app"]/div/div[1]/main/div/div/div/div/div/div[2]/p</arg>
-<doc>Scrolls the element identified by ``locator`` into view.</doc>
-<status status="PASS" start="2024-07-24T16:29:23.786177" elapsed="0.297384"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2024-07-24T16:29:25.084859" level="INFO">Slept 1 second.</msg>
-<arg>1s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2024-07-24T16:29:24.083890" elapsed="1.000969"/>
-</kw>
-<kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2024-07-24T16:29:25.132562" level="INFO">${signature} = MJRHduE1k9QdPlw0iF0xLGzft6bPHHbsxKukOtaDkb/DcOkocLpyOAGVsltJSCekXZrfERh6yryKTCCp/JSs2LQwypnIGoPv0NfgtJeIIokBY0cCd/CtaLSDiR1dV/Qd1Afh3PnrI56vxjmTXC/+Xokm75gBDe/FrQtySxcOAmMFQU3+GnXAaX+lyOSA6klquwFCTrIV...</msg>
-<var>${signature}</var>
-<arg>xpath=//*[@id="app"]/div/div[1]/main/div/div/div/div/div/div[1]/p</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-07-24T16:29:25.084859" elapsed="0.048903"/>
+<kw name="POST" owner="RequestsLibrary">
+<msg time="2024-07-26T17:28:09.700572" level="INFO">POST Request : url=https://bayarind-converter.santikadev.com/api/v1.0/transfer-va/payment 
+ path_url=/api/v1.0/transfer-va/payment 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'X-TIMESTAMP': '2024-07-26T15:20:00+07:00', 'X-SIGNATURE': 'KTJtD+iVKMnCVrdxlvIOCXdurnNv+I/3SEvDZTDtrGkRG3eERZwdIWYoIzWFcTNq+y7dRSJLtZMxaQ9WrT1FtGaBr1cvd8YdKeQKX/80Us08uQTp2krhKDSkBSUm/w4O+8dCzaFBfqJJSJP2QYEYXP3xGrMF809pzrYDif2dQ1BvYH1v3EbEGvyn99FOkjNOPtmDo7uKm/DPQ5fBtcR52v+Za2y1to+KneRI7iXVV+q1HlVfm7aOthRKpriUeBOcTLIBL0HxsE5YpMOE1UM8D1IHG+ANIqcWBeyJTt8Uzjxtxa/anNTB39J89OejGHo2nku7EA8ATRr2SNSyhCVfwQ==', 'X-PARTNER-ID': 'MSANTIKAPREMPALEMBVA', 'X-EXTERNAL-ID': '172198156966a35a81b4878', 'CHANNEL-ID': '1021', 'Content-Length': '681', 'Content-Type': 'application/json'} 
+ body=b'{"partnerServiceId": "   39317", "customerNo": "14636628217473100", "virtualAccountNo": "   3931714636628217473100", "virtualAccountName": "QA Testing", "channelCode": "6011", "paymentRequestId": "20240726", "paidAmount": {"value": "219000.00", "currency": "IDR"}, "referenceNo": "204722446", "trxId": "9E3EF8DD8VA4602sss", "trxDateTime": "2024-07-26T15:20:00+07:00", "flagAdvise": "N", "additionalInfo": {"insertId": "37597907", "tagId": "37597907", "flagType": "11", "passApp": "69201404a03906b6ce8a9aee4fb92d95e884885cde84cfed5694ebbe26a67d46", "idApp": "amFRRlJZNjdnalFaNmNOeGtZVW5zRCtKTnNqTm13VFpodDF2eEk3OUtDd08ySlVPRmVQOHRWRjlEai9yRUpSWmQrcll5Y25uQkMzQWNkOURValQ5WWc9PQ=="}}' 
+ </msg>
+<msg time="2024-07-26T17:28:09.700572" level="INFO">POST Response : url=https://bayarind-converter.santikadev.com/api/v1.0/transfer-va/payment 
+ status=200, reason=OK 
+ headers={'Date': 'Fri, 26 Jul 2024 10:28:09 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Host': 'bayarind-converter.santikadev.com', 'X-Powered-By': 'PHP/7.3.33', 'X-TIMESTAMP': '2024-07-26T17:28:09+07:00', 'Cache-Control': 'no-cache, private', 'X-RateLimit-Limit': '60', 'X-RateLimit-Remaining': '59', 'Access-Control-Allow-Origin': '*'} 
+ body={"responseCode":"4042512","responseMessage":"Bill not found [Invalid Transaction No]"} 
+ </msg>
+<msg time="2024-07-26T17:28:09.700572" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>${santika_url}</arg>
+<arg>headers=${header}</arg>
+<arg>json=${body}</arg>
+<doc>Sends a POST request.</doc>
+<status status="PASS" start="2024-07-26T17:28:09.210230" elapsed="0.490342"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2024-07-24T16:29:25.135072" level="INFO">MJRHduE1k9QdPlw0iF0xLGzft6bPHHbsxKukOtaDkb/DcOkocLpyOAGVsltJSCekXZrfERh6yryKTCCp/JSs2LQwypnIGoPv0NfgtJeIIokBY0cCd/CtaLSDiR1dV/Qd1Afh3PnrI56vxjmTXC/+Xokm75gBDe/FrQtySxcOAmMFQU3+GnXAaX+lyOSA6klquwFCTrIVf2qsKRlCd0EZg7gvzTMoD7EPMtpkkWcgx3k4U5DJ+FE0gkjpz50U8uzfa6zXRVNTBHFR9EdZnS9AWjf34NM44bK/NdMu2mV/mMW9zpK1EsDVxRYHdjp2yFniYRt05SIcUh8iE1nytpyQlw==</msg>
-<arg>${signature}</arg>
+<msg time="2024-07-26T17:28:09.700572" level="INFO">{'responseCode': '4042512', 'responseMessage': 'Bill not found [Invalid Transaction No]'}</msg>
+<arg>${response.json()}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2024-07-24T16:29:25.134474" elapsed="0.000598"/>
+<status status="PASS" start="2024-07-26T17:28:09.700572" elapsed="0.000000"/>
 </kw>
-<status status="PASS" start="2024-07-24T16:29:23.786177" elapsed="1.348895"/>
-</kw>
-<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
-<doc>Closes the current browser.</doc>
-<status status="PASS" start="2024-07-24T16:29:25.135072" elapsed="2.300242"/>
-</kw>
-<status status="PASS" start="2024-07-24T16:29:09.576349" elapsed="17.894098"/>
+<status status="PASS" start="2024-07-26T17:28:09.210230" elapsed="0.490342"/>
 </test>
 <doc>Edit the timestamp and copy the desired request body</doc>
-<status status="PASS" start="2024-07-24T16:29:09.402320" elapsed="18.068127"/>
+<status status="PASS" start="2024-07-26T17:28:08.846871" elapsed="0.869349"/>
 </suite>
 <statistics>
 <total>

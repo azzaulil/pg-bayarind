@@ -25,19 +25,19 @@ ${HOTEL_SANTIKA_PEKALONGAN}    https://web.santikadev.com/hotel?hotelId=84&check
 ${HOTEL_SANTIKA_SEMINYAK}    https://web.santikadev.com/hotel?hotelId=101&checkInDate=2024-07-24&duration=1&rooms=1&specialRateCode
 
 ${Hotel_Santika_Siligita_Nusa_Dua_Bali}    https://web.santikadev.com/hotel?hotelId=102&checkInDate=2024-07-24&duration=1&rooms=1&specialRateCode
-${HOTEL_SANTIKA_TASIKMALAYA}    https://web.santikadev.com/hotel?hotelId=105&checkInDate=2024-07-24&duration=1&rooms=1&specialRateCode
-${Hotel_Santika_Mega_City_Bekasi}    https://web.santikadev.com/hotel?hotelId=81&checkInDate=2024-07-24&duration=1&rooms=1&specialRateCode
-${HOTEL_SANTIKA_RADIAL_PALEMBANG}    https://web.santikadev.com/hotel?hotelId=100&checkInDate=2024-07-24&duration=1&rooms=1&specialRateCode
-${Hotel_Santika_Luwuk_Sulawesi_Tengah}    https://web.santikadev.com/hotel?hotelId=78&checkInDate=2024-07-24&duration=1&rooms=1&specialRateCode
+${HOTEL_SANTIKA_TASIKMALAYA}    https://web.santikadev.com/hotel?hotelId=105&checkInDate=2024-07-25&duration=1&rooms=1&specialRateCode
+${Hotel_Santika_Mega_City_Bekasi}    https://web.santikadev.com/hotel?hotelId=81&checkInDate=2024-07-25&duration=1&rooms=1&specialRateCode
+${HOTEL_SANTIKA_RADIAL_PALEMBANG}    https://web.santikadev.com/hotel?hotelId=100&checkInDate=2024-07-26&duration=1&rooms=1&specialRateCode
+${Hotel_Santika_Luwuk_Sulawesi_Tengah}    https://web.santikadev.com/hotel?hotelId=78&checkInDate=2024-07-26&duration=1&rooms=1&specialRateCode
 
-# ${Hotel_Santika_Sukabumi_Jawa_Barat} = "https://web.santikadev.com/hotel?hotelId=103&checkInDate=2024-07-24&duration=1&rooms=1&specialRateCode"
-# HOTEL_SANTIKA_GARUT = "https://web.santikadev.com/hotel?hotelId=74&checkInDate=2024-07-24&duration=1&rooms=1&specialRateCode"
-# Hotel_Santika_Premiere_Beach_Resort_Belitung = "https://web.santikadev.com/hotel?hotelId=88&checkInDate=2024-07-24&duration=1&rooms=1&specialRateCode"
-# Hotel_Santika_Premiere_Bandara_Palembang = "https://web.santikadev.com/hotel?hotelId=86&checkInDate=2024-07-24&duration=1&rooms=1&specialRateCode"
-# Hotel_Santika_Pasir_Koja = "https://web.santikadev.com/hotel?hotelId=123&checkInDate=2024-07-24&duration=1&rooms=1&specialRateCode"
+${Hotel_Santika_Sukabumi_Jawa_Barat}    https://web.santikadev.com/hotel?hotelId=103&checkInDate=2024-07-26&duration=1&rooms=1&specialRateCode
+${HOTEL_SANTIKA_GARUT}    https://web.santikadev.com/hotel?hotelId=74&checkInDate=2024-07-26&duration=1&rooms=1&specialRateCode
+${Hotel_Santika_Premiere_Beach_Resort_Belitung}    https://web.santikadev.com/hotel?hotelId=88&checkInDate=2024-07-26&duration=1&rooms=1&specialRateCode
+${Hotel_Santika_Premiere_Bandara_Palembang}    https://web.santikadev.com/hotel?hotelId=86&checkInDate=2024-07-26&duration=1&rooms=1&specialRateCode
+${Hotel_Santika_Pasir_Koja}    https://web.santikadev.com/hotel?hotelId=123&checkInDate=2024-07-26&duration=1&rooms=1&specialRateCode
 
-# HOTEL_SANTIKA_GRESIK = "https://web.santikadev.com/hotel?hotelId=111&checkInDate=2024-07-24&duration=1&rooms=1&specialRateCode"
-# Hotel_Santika_Bukittinggi = "https://web.santikadev.com/hotel?hotelId=139&checkInDate=2024-07-24&duration=1&rooms=1&specialRateCode"
-# Hotel_Santika_Premiere_Padang = "https://web.santikadev.com/hotel?hotelId=135&checkInDate=2024-07-24&duration=1&rooms=1&specialRateCode"
-# Hotel_Santika_Premiere_Bintaro = "https://web.santikadev.com/hotel?hotelId=89&checkInDate=2024-07-24&duration=1&rooms=1&specialRateCode"
-# Hotel_Santika_Premiere_Dyandra_Medan = "https://web.santikadev.com/hotel?hotelId=90&checkInDate=2024-07-24&duration=1&rooms=1&specialRateCode"
+${HOTEL_SANTIKA_GRESIK}    https://web.santikadev.com/hotel?hotelId=111&checkInDate=2024-07-29&duration=1&rooms=1&specialRateCode
+${Hotel_Santika_Bukittinggi}    https://web.santikadev.com/hotel?hotelId=139&checkInDate=2024-07-29&duration=1&rooms=1&specialRateCode
+${Hotel_Santika_Premiere_Padang}    https://web.santikadev.com/hotel?hotelId=135&checkInDate=2024-07-29&duration=1&rooms=1&specialRateCode
+${Hotel_Santika_Premiere_Bintaro}    https://web.santikadev.com/hotel?hotelId=89&checkInDate=2024-07-29&duration=1&rooms=1&specialRateCode
+${Hotel_Santika_Premiere_Dyandra_Medan}    https://web.santikadev.com/hotel?hotelId=90&checkInDate=2024-07-29&duration=1&rooms=1&specialRateCode

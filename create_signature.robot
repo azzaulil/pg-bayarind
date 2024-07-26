@@ -2,15 +2,54 @@
 Documentation     Edit the timestamp and copy the desired request body
 Library           SeleniumLibrary
 Resource          url_hotel.resource
+Library    RequestsLibrary
+Library    Collections
+Variables    variable.py
 
 *** Test Cases ***
-Generate Signature
-    Open Browser To Merchant Page    ${snap_config}
-    Login
-    Fill the form
-    Copy signature
-    # Screenshot page
-    [Teardown]    Close Browser
+# Generate Signature
+#     Open Browser To Merchant Page    ${snap_config}
+#     Login
+#     Fill the form
+#     Copy signature
+#     # Screenshot page
+#     [Teardown]    Close Browser
+
+Payment VA
+    ${header}    Create Dictionary    
+    ...    X-TIMESTAMP=${timestamp}    
+    ...    X-SIGNATURE=${signature}
+    ...    X-PARTNER-ID=${partnerId}
+    ...    X-EXTERNAL-ID=${externalId} 
+    ...    CHANNEL-ID=${channelId}
+
+    ${paidAmount}    Create Dictionary    
+    ...    value=${value}    
+    ...    currency=${currency}
+
+    ${additionalInfo}    Create Dictionary    
+    ...    insertId=${insertId}    
+    ...    tagId=${insertId}    
+    ...    flagType=${flagType}    
+    ...    passApp=${passApp}    
+    ...    idApp=${idApp}
+
+    ${body}    Create Dictionary    
+    ...    partnerServiceId=${partnerServiceId}   
+    ...    customerNo=${customerNo}    
+    ...    virtualAccountNo=${partnerServiceId}${customerNo}    
+    ...    virtualAccountName=${virtualAccountName}    
+    ...    channelCode=${channelCode}        
+    ...    paymentRequestId=${paymentRequestId}    
+    ...    paidAmount=${paidAmount}
+    ...    referenceNo=${referenceNo}
+    ...    trxId=${trxId}    
+    ...    trxDateTime=${timestamp}    
+    ...    flagAdvise=${flagAdvise}
+    ...    additionalInfo=${additionalInfo}
+
+    ${response}    POST    ${santika_url}    headers=${header}    json=${body}
+    Log    ${response.json()}
 
 *** Keywords ***
 Open Browser To Merchant Page
@@ -28,7 +67,7 @@ Login
     Wait Until Page Contains    text=Generate Asymmetric Signature 
 
 Fill the form
-    Input Text    timestamp    2024-07-24T16:25:00+07:00
+    Input Text    timestamp    ${timestamp}
     Input Text    http_method    POST
     Input Text    endpoint_url    /api/v1.0/transfer-va/payment
     Input Text    private_key    ${private_key}
@@ -46,12 +85,4 @@ Copy signature
     ${signature}    Get Text    xpath=//*[@id="app"]/div/div[1]/main/div/div/div/div/div/div[1]/p
     # Sleep    2s
     Log    ${signature}
-
-Screenshot page
-    Click Element    xpath=//div[@id='app']/div[4]/main/div/div/div/div/div/div/div/div/div[3]/div[2]/div[2]/div[2]/div
-    Sleep    3s
-    ${va_number}=    Get Text    xpath=/html/body/div[1]/div/div/div[4]/main/div/div/div/div/div/div/div[1]/div/div[3]/div[2]/div[2]/div[1]/div[2]
-    Sleep    3s
-    Log    ${va_number}
-    Sleep    3s
-    Capture Page Screenshot    filename=signature.png
+    Set Suite Variable    ${signature}

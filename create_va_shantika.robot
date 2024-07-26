@@ -5,7 +5,7 @@ Resource          url_hotel.resource
 
 *** Test Cases ***
 Generate VA number
-    Open Browser To Merchant Page    ${Hotel_Santika_Siligita_Nusa_Dua_Bali}
+    Open Browser To Merchant Page    ${Hotel_Santika_Premiere_Bandara_Palembang}
     Select Room
     Fill in Data
     Review
@@ -31,7 +31,7 @@ Select Room
     Click Element    xpath=//div[@id='room']/div/div/div[2]/div/div/div/div/div[4]/button/div
     
 Fill in Data
-    Wait Until Location Is    expected=https://web.santikadev.com/booking    timeout=10s
+    Wait Until Location Is    expected=https://web.santikadev.com/booking    timeout=20s
     Sleep    1s
     Click Element    xpath=//div[@id='app']/div[12]/main/div/div/div/div/div/div[2]/div/div/div[2]/div/div/div/div/div/div/div/div/div
     Sleep    1s
