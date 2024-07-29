@@ -31,10 +31,10 @@ ${HOTEL_SANTIKA_RADIAL_PALEMBANG}    https://web.santikadev.com/hotel?hotelId=10
 ${Hotel_Santika_Luwuk_Sulawesi_Tengah}    https://web.santikadev.com/hotel?hotelId=78&checkInDate=2024-07-26&duration=1&rooms=1&specialRateCode
 
 ${Hotel_Santika_Sukabumi_Jawa_Barat}    https://web.santikadev.com/hotel?hotelId=103&checkInDate=2024-07-26&duration=1&rooms=1&specialRateCode
-${HOTEL_SANTIKA_GARUT}    https://web.santikadev.com/hotel?hotelId=74&checkInDate=2024-07-26&duration=1&rooms=1&specialRateCode
+${HOTEL_SANTIKA_GARUT}    https://web.santikadev.com/hotel?hotelId=74&checkInDate=2024-07-29&duration=1&rooms=1&specialRateCode
 ${Hotel_Santika_Premiere_Beach_Resort_Belitung}    https://web.santikadev.com/hotel?hotelId=88&checkInDate=2024-07-26&duration=1&rooms=1&specialRateCode
-${Hotel_Santika_Premiere_Bandara_Palembang}    https://web.santikadev.com/hotel?hotelId=86&checkInDate=2024-07-26&duration=1&rooms=1&specialRateCode
-${Hotel_Santika_Pasir_Koja}    https://web.santikadev.com/hotel?hotelId=123&checkInDate=2024-07-26&duration=1&rooms=1&specialRateCode
+${Hotel_Santika_Premiere_Bandara_Palembang}    https://web.santikadev.com/hotel?hotelId=86&checkInDate=2024-07-29&duration=1&rooms=1&specialRateCode
+${Hotel_Santika_Pasir_Koja}    https://web.santikadev.com/hotel?hotelId=123&checkInDate=2024-07-29&duration=1&rooms=1&specialRateCode
 
 ${HOTEL_SANTIKA_GRESIK}    https://web.santikadev.com/hotel?hotelId=111&checkInDate=2024-07-29&duration=1&rooms=1&specialRateCode
 ${Hotel_Santika_Bukittinggi}    https://web.santikadev.com/hotel?hotelId=139&checkInDate=2024-07-29&duration=1&rooms=1&specialRateCode

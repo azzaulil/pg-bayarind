@@ -4,16 +4,22 @@ Library           SeleniumLibrary
 Resource          url_hotel.resource
 Library    RequestsLibrary
 Library    Collections
+Library    JSONLibrary
 Variables    variable.py
 
 *** Test Cases ***
-# Generate Signature
-#     Open Browser To Merchant Page    ${snap_config}
-#     Login
-#     Fill the form
-#     Copy signature
-#     # Screenshot page
-#     [Teardown]    Close Browser
+Generate Signature
+    ${current_record}    Load JSON From File   request_body.json
+    ${json_string}=    Convert Json To String    ${current_record}
+    Log    ${json_string}
+    Set Suite Variable    ${current_record}
+    # Create Conflict - request body    customerNo=${conflict}
+    Open Browser To Merchant Page    ${snap_config}
+    Login
+    Fill the form    request_body=${json_string}
+    Copy signature
+    # Screenshot page
+    [Teardown]    Close Browser
 
 Payment VA
     ${header}    Create Dictionary    
@@ -22,7 +28,13 @@ Payment VA
     ...    X-PARTNER-ID=${partnerId}
     ...    X-EXTERNAL-ID=${externalId} 
     ...    CHANNEL-ID=${channelId}
+    # Create Conflict - request body    customerNo=${conflict}
+    ${response}    POST    ${santika_url}    headers=${header}    json=${current_record}
+    Log    ${response.json()}
 
+*** Keywords ***
+Create Conflict - request body
+    [Arguments]    ${customerNo}
     ${paidAmount}    Create Dictionary    
     ...    value=${value}    
     ...    currency=${currency}
@@ -47,11 +59,10 @@ Payment VA
     ...    trxDateTime=${timestamp}    
     ...    flagAdvise=${flagAdvise}
     ...    additionalInfo=${additionalInfo}
+    ${json_string}=    json.dumps(${body})
+    ${json_body}=    Convert String To Json    json_string=${json_string}
+    Set Suite Variable    ${json_body}
 
-    ${response}    POST    ${santika_url}    headers=${header}    json=${body}
-    Log    ${response.json()}
-
-*** Keywords ***
 Open Browser To Merchant Page
     [Arguments]    ${URL}
     Open Browser    ${URL}    ${BROWSER}
@@ -67,12 +78,14 @@ Login
     Wait Until Page Contains    text=Generate Asymmetric Signature 
 
 Fill the form
+    [Arguments]    ${request_body}
     Input Text    timestamp    ${timestamp}
     Input Text    http_method    POST
     Input Text    endpoint_url    /api/v1.0/transfer-va/payment
     Input Text    private_key    ${private_key}
     Click Element    body
-    Press Keys    body    CTRL+v
+    Input Text    body    text=${request_body}
+    # Press Keys    body    CTRL+v
     Submit Form    xpath=//*[@id="app"]/div/div[1]/main/div/div/div/div/div/form
     # Scroll Element Into View    xpath=//*[contains(text(), "Generate")]
     # Sleep    2s

@@ -5,7 +5,7 @@ Resource          url_hotel.resource
 
 *** Test Cases ***
 Generate VA number
-    Open Browser To Merchant Page    ${Hotel_Santika_Premiere_Bandara_Palembang}
+    Open Browser To Merchant Page    ${HOTEL_SANTIKA_GARUT}
     Select Room
     Fill in Data
     Review
