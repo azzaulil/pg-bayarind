@@ -70,9 +70,9 @@ Open Browser To Merchant Page
     Page Should Contain    text=Log in    loglevel=TRACE
 
 Login
-    Input Text    email    snapconfigurator@bayarind.id
+    Input Text    email    ${EMAIL}
     Sleep    1s
-    Input Password    password    Rahasia123$
+    Input Password    password    ${PASSWORD}
     Sleep    1s
     Submit Form
     Wait Until Page Contains    text=Generate Asymmetric Signature 
