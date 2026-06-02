@@ -5,8 +5,8 @@ Library           SeleniumLibrary
 *** Variables ***
 ${BROWSER}        Chrome
 ${URL}            https://snaptest-configurator.bayarind.id/login
-${Email}          snapconfigurator@bayarind.id
-${Password}       Rahasia123$
+${Email}          ***
+${Password}       ***
 
 *** Test Cases ***
 Check merchant data
