@@ -19,8 +19,8 @@ trxId               = 'AE622001CVA4603'
 flagAdvise          = 'N'
 insertId            = '37598015'
 flagType            = '11'
-passApp             = '69201404a03906b6ce8a9aee4fb92d95e884885cde84cfed5694ebbe26a67d46'
-idApp               = 'amFRRlJZNjdnalFaNmNOeGtZVW5zRCtKTnNqTm13VFpodDF2eEk3OUtDd08ySlVPRmVQOHRWRjlEai9yRUpSWmQrcll5Y25uQkMzQWNkOURValQ5WWc9PQ=='
+passApp             = '***'
+idApp               = '***'
 
 santika_url = "https://bayarind-converter.santikadev.com/api/v1.0/transfer-va/payment"
 esmod_url = "https://esmod-payment.edusis.co.id/bca/virtual-account/v1.0/transfer-va/payment"
